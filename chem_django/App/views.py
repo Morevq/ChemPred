@@ -9,16 +9,19 @@ from time import sleep
 и вернуть обратно на бэк
 '''
 def ajax_handler(request):
-    text = request.GET.get('search_text', '')
+    text = request.GET.get('search_text', '') #получение данных с фронта
     context = {
         'status': 'ok',
         'data': f'Hello! Вы искали "{text}"'
-    }
-    return JsonResponse(context)
+    } #то, что мы возвращаем на фронт
+    return JsonResponse(context) #отправка данных на фронт
 
 
 def index(request):
+    '''то, что мы возвращаем на фронт на глувную страницу,
+        тут это название страницы и заголовок,
+        но это можно поменять'''
     context = {
         'pagename': 'Пример работы'
     }
-    return render(request, 'index.html', context)
+    return render(request, 'index.html', context) #отправка данных на фронт

@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-
+#импортируем функции из views.py
 from App.views import index, ajax_handler
 
+'''
+схема такая:
+path('ПУТЬ К СТРАНИЦЕ', НАЗВАНИЕ_ФУНКЦИИ, name='ИМЯ ЕСЛИ НАДО'),
+'''
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
